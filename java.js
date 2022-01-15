@@ -8,19 +8,19 @@ let myLibrary = [];
 
 
 book_1 = new Book('The Hobbit', 'J.R.R Tolkien', "295", 'Not Read')
-book_2 = new Book('Harry Potter', 'J.K Rowling', '600', 'Read')
-book_3 = new Book('The Lion, the Witch and the Wardrobe', 'C. S. Lewis', '135', 'Read')
-book_4 = new Book('The Da Vinci Code', 'Dan Brown', '531', 'Not Read')
-book_5 = new Book('The Catcher in the Rye', 'J. D. Salinger', '130', 'Not Read')
-book_6 = new Book('To Kill a Mockingbird', 'Harper Lee', '1358', 'Read')
+// book_2 = new Book('Harry Potter', 'J.K Rowling', '600', 'Read')
+// book_3 = new Book('The Lion, the Witch and the Wardrobe', 'C. S. Lewis', '135', 'Read')
+// book_4 = new Book('The Da Vinci Code', 'Dan Brown', '531', 'Not Read')
+// book_5 = new Book('The Catcher in the Rye', 'J. D. Salinger', '130', 'Not Read')
+// book_6 = new Book('To Kill a Mockingbird', 'Harper Lee', '1358', 'Read')
 
 
 myLibrary.push(book_1)
-myLibrary.push(book_2)
-myLibrary.push(book_3)
-myLibrary.push(book_4)
-myLibrary.push(book_5)
-myLibrary.push(book_6)
+// myLibrary.push(book_2)
+// myLibrary.push(book_3)
+// myLibrary.push(book_4)
+// myLibrary.push(book_5)
+// myLibrary.push(book_6)
 
 
 
@@ -42,7 +42,8 @@ const addBook = (ev) => {
     
     const info = document.createElement('div')
     info.classList.add('info')
-
+  
+    info.setAttribute('data-index' , i)
        const title = document.createElement('h2')
        title.textContent=myLibrary[i].title;
        title.style.fontStyle = 'italic'
@@ -52,6 +53,18 @@ const addBook = (ev) => {
        pages.textContent='Number of Pages: ' + myLibrary[i].pages
        let read = document.createElement('h2')
        read.textContent = myLibrary[i].read
+    //    problems dynamically adding button with loop//
+       let rmv = document.createElement('btn')
+       rmv.textContent='Remove'
+    //    how to do this remove function????
+    //    rmv.addEventListener('click', (element)=> {
+    //        myLibrary.splice(element.target.dataset, 1)
+    
+    //    })
+
+       //adding append child button manually//
+       info.appendChild(rmv)
+       //
        container.appendChild(info)
        info.appendChildren = function (){
             for (let j=0; j< arguments.length; j++){
@@ -92,3 +105,4 @@ function Book(title, author, pages, read){
 //   document.getElementById('btn').addEventListener('click', closeForm)
 
 //
+
