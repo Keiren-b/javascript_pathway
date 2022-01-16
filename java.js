@@ -43,7 +43,7 @@ const addBook = (ev) => {
     const info = document.createElement('div')
     info.classList.add('info')
   
-    info.setAttribute('data-index' , i)
+    // info.setAttribute('data-index' , i)
        const title = document.createElement('h2')
        title.textContent=myLibrary[i].title;
        title.style.fontStyle = 'italic'
@@ -54,17 +54,27 @@ const addBook = (ev) => {
        let read = document.createElement('h2')
        read.textContent = myLibrary[i].read
     //    problems dynamically adding button with loop//
-    //    let rmv = document.createElement('btn')
-    //    rmv.textContent='Remove'
-    //    how to do this remove function????
-    //    rmv.addEventListener('click', (element)=> {
-    //        myLibrary.splice(element.target.dataset, 1)
-    
-    //    })
+       let rmv = document.createElement('btn')
+       rmv.classList.add('rmv')
+       rmv.textContent='Remove'
 
-       //adding append child button manually//
-    //    info.appendChild(rmv)
-       //
+       
+    //    how to do this remove function????
+
+       rmv.addEventListener('click', (element)=> {
+        let rmvObj = element.target.parentElement
+        for (let i=0; i<myLibrary.length; i++){
+            rmvObj.setAttribute('data-index', i)
+        }
+        rmvObj.remove()
+        myLibrary.splice(rmvObj.getAttribute('data-index', 1))
+
+        
+       })
+
+
+      
+
        container.appendChild(info)
        info.appendChildren = function (){
             for (let j=0; j< arguments.length; j++){
@@ -72,7 +82,7 @@ const addBook = (ev) => {
             }
        }
 
-       info.appendChildren(title, author, pages, read)
+       info.appendChildren(title, author, pages, read, rmv)
     //    info.appendChild(title, author, pages, read)
    }}
 
@@ -106,3 +116,4 @@ function Book(title, author, pages, read){
 
 //
 
+// 
