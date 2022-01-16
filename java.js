@@ -54,8 +54,8 @@ const addBook = (ev) => {
        let read = document.createElement('h2')
        read.textContent = myLibrary[i].read
     //    problems dynamically adding button with loop//
-       let rmv = document.createElement('btn')
-       rmv.textContent='Remove'
+    //    let rmv = document.createElement('btn')
+    //    rmv.textContent='Remove'
     //    how to do this remove function????
     //    rmv.addEventListener('click', (element)=> {
     //        myLibrary.splice(element.target.dataset, 1)
@@ -63,7 +63,7 @@ const addBook = (ev) => {
     //    })
 
        //adding append child button manually//
-       info.appendChild(rmv)
+    //    info.appendChild(rmv)
        //
        container.appendChild(info)
        info.appendChildren = function (){
