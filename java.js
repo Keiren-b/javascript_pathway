@@ -1,100 +1,5 @@
-
-
-
-
-
-
 let myLibrary = [];
-
-
-book_1 = new Book('The Hobbit', 'J.R.R Tolkien', "295", 'Not Read')
-book_2 = new Book('Harry Potter', 'J.K Rowling', '600', 'Read')
-book_3 = new Book('The Lion, the Witch and the Wardrobe', 'C. S. Lewis', '135', 'Read')
-book_4 = new Book('The Da Vinci Code', 'Dan Brown', '531', 'Not Read')
-book_5 = new Book('The Catcher in the Rye', 'J. D. Salinger', '130', 'Not Read')
-book_6 = new Book('To Kill a Mockingbird', 'Harper Lee', '1358', 'Read')
-
-
-myLibrary.push(book_1)
-myLibrary.push(book_2)
-myLibrary.push(book_3)
-myLibrary.push(book_4)
-myLibrary.push(book_5)
-myLibrary.push(book_6)
-
-
-
 const container = document.getElementById('cardContainer')
-
-const addBook = (ev) => {
-    ev.preventDefault()
-    let title = document.getElementById('title').value;
-    let author = document.getElementById('author').value
-    let pages = document.getElementById('pages').value
-    let read = document.getElementById('read').value
-
-    let book = new Book(title, author, pages, read)
-    myLibrary.push(book);
-
-
-    for (let i=0; i<myLibrary.length; i++){
-
-    
-    const info = document.createElement('div')
-    info.classList.add('info')
-  
-    // info.setAttribute('data-index' , i)
-       const title = document.createElement('h2')
-       title.textContent=myLibrary[i].title;
-       title.style.fontStyle = 'italic'
-       const author = document.createElement('h2')
-       author.textContent = myLibrary[i].author;
-       let pages = document.createElement('h2')
-       pages.textContent='Number of Pages: ' + myLibrary[i].pages
-       let read = document.createElement('h2')
-       read.textContent = myLibrary[i].read
-    //    problems dynamically adding button with loop//
-       let rmv = document.createElement('btn')
-       rmv.classList.add('rmv')
-       rmv.textContent='Remove'
-
-       
-    //    how to do this remove function????
-
-       rmv.addEventListener('click', (element)=> {
-        let rmvObj = element.target.parentElement
-        for (let i=0; i<myLibrary.length; i++){
-            rmvObj.setAttribute('data-index', i)
-        }
-        rmvObj.remove()
-        myLibrary.splice(rmvObj.getAttribute('data-index', 1))
-
-        
-       })
-
-
-      
-
-       container.appendChild(info)
-       info.appendChildren = function (){
-            for (let j=0; j< arguments.length; j++){
-                this.appendChild(arguments[j]);
-            }
-       }
-
-       info.appendChildren(title, author, pages, read, rmv)
-    //    info.appendChild(title, author, pages, read)
-   }}
-
-    document.querySelector('form').reset()
-    
-
-
-
-document.addEventListener('DOMContentLoaded', ()=> {
-    document.getElementById('btn').addEventListener('click', addBook)
-})
-
 
 function Book(title, author, pages, read){
     this.title = title
@@ -103,17 +8,104 @@ function Book(title, author, pages, read){
     this.read = read
 }
 
-// function openForm() {
-//     document.getElementById("formContainer").style.display = "block";
-//   }
-//   document.getElementById('add').addEventListener('click', openForm)
+// book_1 = new Book('1', 'J.R.R Tolkien', "295", 'Not Read')
+// book_2 = new Book('2', 'J.K Rowling', '600', 'Read')
+// book_3 = new Book('3', 'C. S. Lewis', '135', 'Read')
+// book_4 = new Book('4', '531', 'Not Read')
+// book_5 = new Book('5', 'J. D. Salinger', '130', 'Not Read')
+// book_6 = new Book('6', 'Harper Lee', '1358', 'Read')
 
-//   function closeForm() {
-//     document.getElementById("formContainer").style.display = "none";
-//   }
 
-//   document.getElementById('btn').addEventListener('click', closeForm)
+// myLibrary.push(book_1)
+// createDivs()
+// myLibrary.push(book_2)
+// createDivs()
+// myLibrary.push(book_3)
+// createDivs()
+// myLibrary.push(book_4)
+// createDivs()
+// myLibrary.push(book_5)
+// createDivs()
+// myLibrary.push(book_6)
+// createDivs()
 
-//
+for (let i=1; i<20; i++){
+    x = new Book (i,i,i,'read')
+    myLibrary.push(x)
+    createDivs()
+}
 
-// 
+document.addEventListener('DOMContentLoaded', ()=> {
+    document.getElementById('btn').addEventListener('click', addBook)
+})
+
+const addBook = (ev) => {
+    ev.preventDefault();
+
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let pages = document.getElementById('pages').value;
+    let read = document.getElementById('read').value;
+    let book = new Book(title, author, pages, read)
+    myLibrary.push(book)
+    createDivs()
+}
+
+function createDivs() {
+
+    const info = document.createElement('div')
+    info.classList.add('info')
+    // info.dataset.index = myLibrary.length-1
+    
+    const titleCard = document.createElement('h2')
+    titleCard.textContent=myLibrary[myLibrary.length-1].title
+    titleCard.style.fontStyle = 'italic'
+    info.appendChild(titleCard)
+
+    const authorCard = document.createElement('h2')
+    authorCard.textContent = myLibrary[myLibrary.length-1].author
+    info.appendChild(authorCard)
+
+    const pagesCard = document.createElement('h2')
+    pagesCard.textContent='Number of Pages: ' + myLibrary[myLibrary.length-1].pages
+    info.appendChild(pagesCard)
+
+    const readCard = document.createElement('h2')
+    readCard.textContent = myLibrary[myLibrary.length-1].read
+    info.appendChild(readCard)
+
+    const rmv = document.createElement('btn')
+       rmv.classList.add('rmv')
+       rmv.textContent='Remove';
+       rmv.addEventListener('click', removeCard)
+       
+       
+        // (element)=> {
+        //         let rmvObj = element.target.parentElement       
+        //         rmvObj.remove()
+        // })
+    info.appendChild(rmv)
+
+    container.appendChild(info)
+    assignData()       
+       }
+    
+    function removeCard(element) {
+        let rmvObj = element.target.parentElement
+        myLibrary.splice(rmvObj.dataset.index, 1)
+        rmvObj.remove()
+        assignData()
+
+    }
+
+    function assignData() {
+        for (let i=0; i<myLibrary.length; i++){
+            let info = document.querySelectorAll('.info')
+            info[i].dataset.index = i
+        }
+    }
+    
+       
+
+
+
