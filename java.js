@@ -36,7 +36,7 @@ createDivs()
 // }
 
 document.addEventListener('DOMContentLoaded', ()=> {
-    document.getElementById('btn').addEventListener('click', addBook)
+    document.getElementById('add').addEventListener('click', addBook)
 })
 
 const addBook = (ev) => {
@@ -73,10 +73,11 @@ function createDivs() {
     const readCard = document.createElement('button')
     readCard.textContent = myLibrary[myLibrary.length-1].read
     info.appendChild(readCard)
+    readCard.classList.add('cardBtn')
     readCard.addEventListener('click', readToggle)
 
-    const rmv = document.createElement('btn')
-       rmv.classList.add('rmv')
+    const rmv = document.createElement('button')
+       rmv.classList.add('cardBtn')
        rmv.textContent='Remove';
        rmv.addEventListener('click', removeCard)
        
@@ -125,8 +126,12 @@ function createDivs() {
 function readToggle(event){
 
     if (event.target.textContent === 'Read'){
+        event.target.classList.remove('toggleRead')
+        event.target.classList.toggle('toggleNotRead')
         event.target.textContent = 'Not Read';
     } else {
+        event.target.classList.remove('toggleNotRead')
+        event.target.classList.toggle('toggleRead')
         event.target.textContent = 'Read'
     }
 }

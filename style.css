@@ -11,9 +11,10 @@ h1 {
   text-align: center;
 }
 
-h2 {
+h2, select {
   font-size: 14px;
-  padding-bottom: 20px;
+  margin: 0px;
+  /* padding-bottom: 20px; */
   background: none
 }
 
@@ -26,9 +27,19 @@ form {
     margin: 0 auto;
     width: 500px;
     /* Form outline */
+    display: flex;
+    flex-direction: column;
     padding: 1em;
-    border: 1px solid #CCC;
+    /* border: 1px solid #CCC; */
     border-radius: 1em;
+    justify-content: space-around;
+
+  }
+
+  #formBtn {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
   }
   
   
@@ -51,6 +62,7 @@ form {
   
     /* Match form field borders */
     border: 1px solid #999;
+    margin-bottom: 12px;
   }
   
   input:focus,
@@ -76,9 +88,18 @@ form {
     /* This extra margin represent roughly the same space as the space
        between the labels and their text fields */
     margin-left: .5em;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 28px;
   }
 
   .info {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
     border: 1px solid rgb(150, 150, 150);
     width: 200px;
     height: 250px;
@@ -109,3 +130,19 @@ form {
     align-items: center;
     justify-content: center;
   }
+
+  .toggleRead {
+    background-color: rgba(49, 192, 120, 0.692);
+   
+  }
+
+  .toggleNotRead {
+    background-color: rgba(255, 0, 98, 0.678);
+   
+  }
+
+  #add {
+    background-color: blueviolet;
+    color: wheat; 
+    margin: 20px
+    }

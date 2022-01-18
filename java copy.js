@@ -78,7 +78,7 @@ for (let i=0; i<myLibrary.length; i++){
        readCard.textContent = myLibrary[i].read
 
        // creates remove button
-       let rmv = document.createElement('btn')
+       let rmv = document.createElement('button')
        rmv.classList.add('rmv')
        rmv.textContent='Remove'
 
