@@ -125,6 +125,16 @@ form {
     background-color: #83cce4;
   }
 
+  #addBtnContainer {
+    display: grid;
+    min-width: 764px;
+    min-height: auto;
+    grid-template-columns: 20%;
+    align-items: center;
+    justify-content: space-around;
+
+  }
+
   #shark{
     display: flex;
     align-items: center;
