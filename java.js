@@ -8,12 +8,12 @@ function Book(title, author, pages, read){
     this.read = read
 }
 
-book_1 = new Book('1', 'J.R.R Tolkien', "295", 'Not Read')
-book_2 = new Book('2', 'J.K Rowling', '600', 'Read')
-book_3 = new Book('3', 'C. S. Lewis', '135', 'Read')
-book_4 = new Book('4',  'James Joyce', '531', 'Not Read')
-book_5 = new Book('5', 'J. D. Salinger', '130', 'Not Read')
-book_6 = new Book('6', 'Harper Lee', '1358', 'Read')
+book_1 = new Book('The Lord of the Rings', 'J.R.R Tolkien', "295", 'Not Read')
+book_2 = new Book('Harry Potter and the Prisoner of Azkaban', 'J.K Rowling', '600', 'Read')
+book_3 = new Book('The Lion, The Witch and the Wardrobe', 'C. S. Lewis', '135', 'Read')
+book_4 = new Book('Ulyses',  'James Joyce', '531', 'Not Read')
+book_5 = new Book('The Catcher in the Rye', 'J. D. Salinger', '130', 'Not Read')
+book_6 = new Book('To Kill a Mockingbird', 'Harper Lee', '1358', 'Read')
 
 
 myLibrary.push(book_1)
@@ -73,11 +73,18 @@ function createDivs() {
     const readCard = document.createElement('button')
     readCard.textContent = myLibrary[myLibrary.length-1].read
     info.appendChild(readCard)
+    if (readCard.textContent === 'Read'){
+
+        readCard.classList.toggle('toggleRead')
+    } else {
+        
+        readCard.classList.toggle('toggleNotRead')
+        
+    }
     readCard.classList.add('cardBtn')
     readCard.addEventListener('click', readToggle)
 
     const rmv = document.createElement('button')
-       rmv.classList.add('cardBtn')
        rmv.textContent='Remove';
        rmv.addEventListener('click', removeCard)
        
