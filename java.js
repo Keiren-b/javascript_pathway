@@ -1,12 +1,22 @@
-let myLibrary = [];
+class Book {
+    constructor(title, author, pages, read){
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    };
+
+}
+
+let myLibrary = []
 const container = document.getElementById('cardContainer')
 
-function Book(title, author, pages, read){
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-}
+// function Book(title, author, pages, read){
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.read = read
+// }
 
 book_1 = new Book('The Lord of the Rings', 'J.R.R Tolkien', "295", 'Not Read')
 book_2 = new Book('Harry Potter and the Prisoner of Azkaban', 'J.K Rowling', '600', 'Read')
